@@ -23,5 +23,5 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            afsantos01/cgitlab:v1
+            afsantos01/cgitlab:${{github.run_number}}
             afsantos01/cgitlab:latest
