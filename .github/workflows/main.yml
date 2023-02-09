@@ -14,8 +14,8 @@ jobs:
       - name: Autenticação no Docker Hub
         uses: docker/login-action@v2.1.0
         with:
-          username: ${{secrets.DOCKERHUB_USER}}
-          password: ${{secrets.DOCKERHUB_PWD}}
+          username: ${{secrets.USER}}
+          password: ${{secrets.PASSWD}}
       
       - name: Construção da imagem Docker
         uses: docker/build-push-action@v3.2.0
@@ -24,8 +24,8 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            fabricioveronez/live-kube-news:${{github.run_number}}
-            fabricioveronez/live-kube-news:latest
+            afsantos01/live-kube-news:${{github.run_number}}
+            afsantos01/live-kube-news:latest
   CD:
     runs-on: ubuntu-latest
     needs: [CI]
